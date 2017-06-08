@@ -19,6 +19,9 @@ package sample.data.jpa;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.persistence.config.PersistenceUnitProperties;
+import org.eclipse.persistence.config.TargetServer;
+import org.eclipse.persistence.platform.server.tomcat.TomcatPlatform;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration;
@@ -45,6 +48,7 @@ public class SampleDataJpaApplication extends JpaBaseConfiguration {
 	@Override
 	protected Map<String, Object> getVendorProperties() {
 		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put(PersistenceUnitProperties.TARGET_SERVER, TomcatPlatform.class.getName());
 		return map;
 	}
 
